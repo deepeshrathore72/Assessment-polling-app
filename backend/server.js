@@ -1,8 +1,10 @@
 // Entry point for the backend server. Sets up Express, Socket.IO, routes, and DB connection.
+// Load .env as a side-effect before importing modules that rely on environment
+// variables (Prisma client is created at module import time in utils/db.js).
+import 'dotenv/config';
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import dotenv from "dotenv";
 import { connectDB } from "./utils/db.js";
 import pollRoutes from "./routes/pollRoutes.js";
 import voteRoutes from "./routes/voteRoutes.js";
@@ -10,7 +12,6 @@ import authRoutes from "./routes/authRoutes.js";
 import { setIo } from "./utils/socket.js";
 import cors from "cors";
 
-dotenv.config();
 
 const app = express();
 const server = createServer(app);
