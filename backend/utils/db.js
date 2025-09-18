@@ -1,5 +1,4 @@
 // Initializes and exports a singleton Prisma client and a connect helper.
-// Load environment variables early in case this module is imported directly.
 import 'dotenv/config';
 import { PrismaClient } from "@prisma/client";
 
