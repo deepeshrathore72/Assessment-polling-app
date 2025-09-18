@@ -16,7 +16,8 @@
 ### Backend
 1. `cd backend`
 2. `npm install`
-3. Create `.env` with:
+# no need to create `.env` file as i already provided, to run the app easily(ignore up to 6th command)
+4. Create `.env` with:
 ```
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DBNAME?schema=public"
 JWT_SECRET="give-any-random-string-to-enhance-the-security"
