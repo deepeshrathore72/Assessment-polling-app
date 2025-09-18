@@ -15,7 +15,7 @@ export default function Home() {
 
     // Load existing polls from the API
     const fetchPolls = () => {
-        axios.get("http://localhost:5000/api/polls")
+        axios.get("https://assessment-polling-app.onrender.com/api/polls")
             .then(res => setPolls(res.data));
     };
 
@@ -40,7 +40,7 @@ export default function Home() {
             return;
         }
         axios.post(
-            "http://localhost:5000/api/polls",
+            "https://assessment-polling-app.onrender.com/api/polls",
             {
                 question,
                 options: filteredOptions
