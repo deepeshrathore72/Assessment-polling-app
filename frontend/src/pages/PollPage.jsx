@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://assessment-polling-app.onrender.com");
 
 export default function PollPage() {
     const { id } = useParams();
@@ -13,7 +13,7 @@ export default function PollPage() {
 
     // Fetch poll data and subscribe to real-time updates for this poll
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/polls/${id}`)
+        axios.get(`https://assessment-polling-app.onrender.com/api/polls/${id}`)
             .then(res => setPoll(res.data));
 
         socket.emit("joinPoll", id);
@@ -33,7 +33,7 @@ export default function PollPage() {
             return;
         }
         axios.post(
-            "http://localhost:5000/api/votes",
+            "https://assessment-polling-app.onrender.com/api/votes",
             { optionId },
             { headers: { Authorization: `Bearer ${token}` } }
         ).then(() => {
